@@ -21,21 +21,21 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6v-f5-bcf">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="V6v-f5-bcf" secondAttribute="height" multiplier="1:1" id="kFj-mF-BPl"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7H-eu-Anb">
                                         <rect key="frame" x="0.0" y="169" width="150" height="150"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="H7H-eu-Anb" secondAttribute="height" multiplier="1:1" id="gx4-Ph-JkT"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cM-Bx-8IM">
                                         <rect key="frame" x="0.0" y="338" width="150" height="150"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="3cM-Bx-8IM" secondAttribute="height" multiplier="1:1" id="o4V-UX-HQT"/>
                                         </constraints>
@@ -48,20 +48,23 @@
                                     <constraint firstItem="H7H-eu-Anb" firstAttribute="width" secondItem="V6v-f5-bcf" secondAttribute="width" id="uHJ-D5-rf8"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7G-jS-6vv">
-                                <rect key="frame" x="121" y="705" width="172" height="56"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7G-jS-6vv">
+                                <rect key="frame" x="121" y="707" width="172" height="54"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="172" id="6dq-xR-KuY"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Start">
-                                    <fontDescription key="titleFontDescription" type="system" weight="heavy" pointSize="35"/>
-                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="StartButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="ClI-j5-RhX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mC5-91-zaa" secondAttribute="trailing" constant="132" id="6jC-qo-GLI"/>
                             <constraint firstItem="R7G-jS-6vv" firstAttribute="centerX" secondItem="mC5-91-zaa" secondAttribute="centerX" id="QMu-aJ-XK6"/>
@@ -71,6 +74,12 @@
                             <constraint firstItem="mC5-91-zaa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="69" id="qLK-wE-ML7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="greenLightSignal" destination="3cM-Bx-8IM" id="LIw-gP-cQs"/>
+                        <outlet property="redLightSignal" destination="V6v-f5-bcf" id="s5k-Ga-vgq"/>
+                        <outlet property="startButton" destination="R7G-jS-6vv" id="7CJ-JF-iYN"/>
+                        <outlet property="yellowLightSignal" destination="H7H-eu-Anb" id="cYY-LI-WPH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,14 +87,17 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
