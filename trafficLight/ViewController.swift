@@ -28,11 +28,28 @@ class ViewController: UIViewController {
         
         startButton.layer.cornerRadius = 15
     }
-
-    @IBAction func StartButtonPressed() {
-        startButton.setTitle("Next", for: .normal)
-        redLightSignal.alpha = 1
-    }
+    var lightSwitcher = "Red"
     
+    @IBAction func startButtonPressed() {
+        switch lightSwitcher {
+        case "Red" :
+            startButton.setTitle("Next", for: .normal)
+            redLightSignal.alpha = 1
+            lightSwitcher = "Yellow"
+        case "Yellow" :
+            redLightSignal.alpha = 0.3
+            yellowLightSignal.alpha = 1
+            lightSwitcher = "Green"
+        case "Green" :
+            yellowLightSignal.alpha = 0.3
+            greenLightSignal.alpha = 1
+            lightSwitcher = "Back to start"
+        case "Back to start" :
+            greenLightSignal.alpha = 0.3
+            startButton.setTitle("Start", for: .normal)
+            lightSwitcher = "Red"
+        default:
+            break
+        }
+    }
 }
-
