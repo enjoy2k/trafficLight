@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet var greenLightSignal: UIView!
     @IBOutlet var startButton: UIButton!
     
+//    var lightSwitcher = "Red" // Свойство должен был указать вначале
+    var lightSwitcher = ColorLight.red
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,28 +33,55 @@ class ViewController: UIViewController {
         
         startButton.layer.cornerRadius = 15
     }
-    var lightSwitcher = "Red"
+    
+//    @IBAction func startButtonPressed() {
+//        switch lightSwitcher {
+//        case "Red" :
+//            startButton.setTitle("Next", for: .normal)
+//            redLightSignal.alpha = 1
+//            lightSwitcher = "Yellow"
+//        case "Yellow" :
+//            redLightSignal.alpha = 0.3
+//            yellowLightSignal.alpha = 1
+//            lightSwitcher = "Green"
+//        case "Green" :
+//            yellowLightSignal.alpha = 0.3
+//            greenLightSignal.alpha = 1
+//            lightSwitcher = "Back to start"
+//        case "Back to start" :
+//            greenLightSignal.alpha = 0.3
+//            startButton.setTitle("Start", for: .normal)
+//            lightSwitcher = "Red"
+//        default:
+//            break
+//        }
+//    }
+    enum ColorLight {
+        case red
+        case yellow
+        case green
+        case backToStart
+    }
     
     @IBAction func startButtonPressed() {
         switch lightSwitcher {
-        case "Red" :
+        case .red:
             startButton.setTitle("Next", for: .normal)
             redLightSignal.alpha = 1
-            lightSwitcher = "Yellow"
-        case "Yellow" :
+            lightSwitcher = .yellow
+        case .yellow:
             redLightSignal.alpha = 0.3
             yellowLightSignal.alpha = 1
-            lightSwitcher = "Green"
-        case "Green" :
+            lightSwitcher = .green
+        case .green:
             yellowLightSignal.alpha = 0.3
             greenLightSignal.alpha = 1
-            lightSwitcher = "Back to start"
-        case "Back to start" :
+            startButton.setTitle("Go!", for: .normal)
+            lightSwitcher = .backToStart
+        case .backToStart:
             greenLightSignal.alpha = 0.3
             startButton.setTitle("Start", for: .normal)
-            lightSwitcher = "Red"
-        default:
-            break
+            lightSwitcher = .red
         }
     }
 }
