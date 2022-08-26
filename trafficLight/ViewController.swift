@@ -22,9 +22,12 @@ class ViewController: UIViewController {
         yellowLightSignal.alpha = 0.3
         greenLightSignal.alpha = 0.3
         
-        redLightSignal.layer.cornerRadius = redLightSignal.frame.size.width/2
-        yellowLightSignal.layer.cornerRadius = redLightSignal.frame.size.width/2
-        greenLightSignal.layer.cornerRadius = redLightSignal.frame.size.width/2
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        redLightSignal.layer.cornerRadius = redLightSignal.frame.width/2
+        yellowLightSignal.layer.cornerRadius = redLightSignal.frame.width/2
+        greenLightSignal.layer.cornerRadius = redLightSignal.frame.width/2
         
         startButton.layer.cornerRadius = 15
     }
