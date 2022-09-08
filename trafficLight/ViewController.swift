@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         greenLightSignal.alpha = 0.3
         
     }
+//    helllo!!
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         redLightSignal.layer.cornerRadius = redLightSignal.frame.width/2
