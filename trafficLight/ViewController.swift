@@ -64,6 +64,8 @@ class ViewController: UIViewController {
         case backToStart
     }
     
+//    Привет!!!
+    
     @IBAction func startButtonPressed() {
         switch lightSwitcher {
         case .red:
