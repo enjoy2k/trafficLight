@@ -12,10 +12,11 @@ class ViewController: UIViewController {
     @IBOutlet var redLightSignal: UIView!
     @IBOutlet var yellowLightSignal: UIView!
     @IBOutlet var greenLightSignal: UIView!
+    
     @IBOutlet var startButton: UIButton!
     
 //    var lightSwitcher = "Red" // Свойство должен был указать вначале
-    var lightSwitcher = ColorLight.red
+    private var lightSwitcher = ColorLight.red
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +57,7 @@ class ViewController: UIViewController {
 //            break
 //        }
 //    }
-    enum ColorLight {
+    private enum ColorLight {  // Если перечисление может быть доступно для изменения, тогда его можно вынести за пределы класса(Наверх). Внутри класса оно должно быть приватным.
         case red
         case yellow
         case green
@@ -85,3 +86,8 @@ class ViewController: UIViewController {
         }
     }
 }
+// Либо так:
+/* extension ViewController { Расширение для класса viewController
+    private enum ColorLight { Здесь он  так же приватный
+case red, yellow, green, backToStart
+} */
